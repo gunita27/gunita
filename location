@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Based Access</title>
+    <script>
+        function checkLocation() {
+            let location = prompt("Please enter your location:");
+            if (location.toLowerCase() === "punjab" || location.toLowerCase() === "haryana" || location.toLowerCase() === "chandigarh") {
+                let username = prompt("Please enter your username:");
+                let password = prompt("Please enter your password:");
+
+                if (validateCredentials(username, password)) {
+                    window.location.href = getLocationMapURL(location);
+                } else {
+                    alert("Wrong credentials.");
+                }
+            } else {
+                alert("Access denied.");
+            }
+        }
+
+        function validateCredentials(username, password) {
+            const validUsername = "2310991576";
+            const validPassword = "GunitaDhiman";
+            return username === validUsername && password === validPassword;
+        }
+
+        function getLocationMapURL(location) {
+            switch(location.toLowerCase()) {
+                case "punjab":
+                    return "https://www.google.com/maps/place/Punjab/";
+                case "haryana":
+                    return "https://www.google.com/maps/place/Haryana/";
+                case "chandigarh":
+                    return "https://www.google.com/maps/place/Chandigarh/";
+                default:
+                    return "#";
+            }
+        }
+    </script>
+</head>
+<body onload="checkLocation()">
+    <h1>please enter your location and id password to acess the site</h1>
+</body>
+</html>
